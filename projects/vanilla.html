@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Interfaces Projects | Tom's Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Background and typography matching other pages */
+    body.project-theme {
+      background: linear-gradient(135deg, #1f2937, #111827); /* navy-gray gradient */
+      color: #f3f4f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Back button top-right corner */
+    .back-button {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      z-index: 1000;
+    }
+
+    .back-button .nav-btn {
+      background-color: #0fffc1;
+      color: #111827;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 0 6px rgba(15, 255, 193, 0.6);
+    }
+
+    .back-button .nav-btn:hover {
+      background-color: #00e0ff;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(15, 255, 193, 0.9);
+    }
+
+    /* Projects heading */
+    .project-section h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0fffc1;
+      text-shadow: 0 0 10px rgba(15, 255, 193, 0.6);
+    }
+
+    /* Grid layout */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding-bottom: 3rem;
+    }
+
+    .project-card {
+      background: #27272a;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(15, 255, 193, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 20px rgba(15, 255, 193, 0.5);
+      border: 1px solid #0fffc1;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #3f3f46;
+    }
+
+    .project-info {
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .project-info h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #0fffc1;
+    }
+
+    .project-info p {
+      font-size: 0.95rem;
+      color: #e4e4e7;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .open-btn {
+      display: inline-block;
+      background: linear-gradient(to right, #0fffc1, #00e0ff);
+      color: #111827;
+      padding: 0.5rem 1.3rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .open-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(15, 255, 193, 0.5);
+    }
+
+    /* Fade in animation */
+    body {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    body {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body class="project-theme">
+
+  <div class="back-button">
+    <a class="nav-btn" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <section class="project-section">
+    <h1><i class="fas fa-laptop-code"></i> Web Interfaces Projects</h1>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <img src="../img/budget.png" alt="Budget Tracker" />
+        <div class="project-info">
+          <h2>Budget Tracker</h2>
+          <p>Track your income and expenses in real time with clean UI and charts.</p>
+          <a href="../apps/BudgetTracker/budget.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="../img/invoice.png" alt="Invoice Maker" />
+        <div class="project-info">
+          <h2>Invoice Maker</h2>
+          <p>Create professional invoices and download them as PDF instantly.</p>
+          <a href="../apps/Invoice/invoice.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="../img/meme.png" alt="Meme Generator" />
+        <div class="project-info">
+          <h2>Meme Generator</h2>
+          <p>Generate hilarious memes with custom top/bottom text and download them.</p>
+          <a href="../apps/Meme/meme.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="../img/quotes.png" alt="Quotes API" />
+        <div class="project-info">
+          <h2>Quotes API</h2>
+          <p>A sleek API and frontend to browse or submit inspirational quotes.</p>
+          <a href="../apps/Quotes/quotes.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="../img/priority.png" alt="Priority Matrix" />
+        <div class="project-info">
+          <h2>Priority Matrix</h2>
+          <p>Organize tasks by urgency and importance using the Eisenhower method.</p>
+          <a href="../apps/PriorityMatrix/priority.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="../img/water.png" alt="Water Tracker" />
+        <div class="project-info">
+          <h2>Water Tracker</h2>
+          <p>Log and monitor daily water intake with a smooth, clean UI.</p>
+          <a href="../apps/Water/water.html" class="open-btn" target="_blank">Open App</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>

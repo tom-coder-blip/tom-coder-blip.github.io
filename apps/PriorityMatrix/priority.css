@@ -1,0 +1,122 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0d0d;
+  color: #00ff88;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #00ff88;
+  margin-bottom: 30px;
+}
+
+.matrix-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.quadrant {
+  background: #111;
+  padding: 20px;
+  min-height: 150px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ff88;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  position: relative;
+}
+
+.task {
+  margin-top: 10px;
+  background: #1a1a1a;
+  border-left: 4px solid #00ff88;
+  padding: 8px;
+  border-radius: 6px;
+  animation: fadeInSlide 0.5s ease-out forwards;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #00ff88;
+}
+
+.task.completed {
+  text-decoration: line-through;
+  color: #007755;
+}
+
+.task .actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.task .deadline {
+  font-size: 0.8em;
+  color: #66ffcc;
+  margin-left: 10px;
+}
+
+.task-input {
+  margin-top: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin: 5px;
+  background-color: #1a1a1a;
+  color: #00ff88;
+  box-shadow: 0 0 5px #00ff88;
+}
+
+button {
+  background-color: #00ff88;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #33ffaa;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.slide-up {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

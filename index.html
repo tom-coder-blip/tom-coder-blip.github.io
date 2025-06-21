@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom | Software Developer Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script defer src="main.js"></script>
+</head>
+
+<body class="theme-grey-navy">
+  <header class="navbar fade-in">
+    <div class="navbar-left">
+      <img src="img/profile.jpg" alt="Tom's Photo" class="profile-pic" />
+      <h1>Tom</h1>
+    </div>
+    <nav class="fade-in">
+      <ul>
+        <li><a class="nav-btn" href="#welcome">Welcome</a></li>
+        <li><a class="nav-btn" href="#about">About</a></li>
+        <li><a class="nav-btn" href="#projects">Projects</a></li>
+        <li><a class="nav-btn" href="#skills">Skills</a></li>
+        <li><a class="nav-btn" href="#qualifications">Qualifications</a></li>
+        <li><a class="nav-btn" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="welcome" class="welcome-section">
+    <h1>WELCOME</h1>
+    <div class="icon-container">
+      <i class="fas fa-laptop-code icon-glow"></i>
+    </div>
+    <h2>I'm Tom. I build, I design, I create. This is my digital portfolio.
+    </h2>
+    <a href="#about" class="enjoy-btn">Enjoy</a>
+  </section>
+
+  <section class="welcome-image-card fade-in">
+  <div class="card-container">
+    <img src="img/tom.jpg" alt="Tom at Desk" class="welcome-photo" />
+  </div>
+</section>
+
+  <section id="about" class="section slide-in about-section">
+    <div class="about-icon">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <h2>About Me</h2>
+    <p>
+      I’m a software developer with a focus on clean, practical, and user-friendly web apps. I enjoy working with
+      tools like Django, React, and the MERN stack, and I’m always exploring new tech to improve my skills. I care about
+      writing solid, maintainable code and building things that actually help people. Outside of coding, I like diving
+      into business trends — always curious about where business and software is headed and how it can make an impact.
+    </p>
+  </section>
+
+  <section id="projects" class="projects-section fade-in">
+    <h2><i class="fas fa-folder-open"></i> Projects</h2>
+    <div class="card-grid">
+      <a class="project-card hover-effect" href="projects/vanilla.html">
+        <i class="fas fa-paint-brush"></i>
+        <span>Web Interfaces (HTML, CSS &amp; JS)</span>
+      </a>
+      <a class="project-card hover-effect" href="projects/backend.html">
+        <i class="fas fa-server"></i>
+        <span>Backend Magic (Python &amp; Django)</span>
+      </a>
+      <a class="project-card hover-effect" href="projects/htmx.html">
+        <i class="fas fa-bolt"></i>
+        <span>Dynamic UX (HTMX)</span>
+      </a>
+      <a class="project-card hover-effect" href="projects/node.html">
+        <i class="fas fa-cubes"></i>
+        <span>APIs &amp; Services (Node.js)</span>
+      </a>
+      <a class="project-card hover-effect" href="projects/react.html">
+        <i class="fab fa-react"></i>
+        <span>Front-End Apps (React)</span>
+      </a>
+      <a class="project-card hover-effect" href="projects/mern.html">
+        <i class="fas fa-layer-group"></i>
+        <span>Fullstack Experience (MERN)</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section fade-in">
+    <h2><i class="fas fa-code"></i> Skills</h2>
+    <ul class="skill-items">
+      <li>
+        <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+        <div class="skill-content">
+          <h3>JavaScript, HTML & CSS</h3>
+          <p>Core building blocks for creating responsive, interactive and styled web interfaces.</p>
+        </div>
+      </li>
+      <li>
+        <div class="skill-icon"><i class="fab fa-python"></i></div>
+        <div class="skill-content">
+          <h3>Python & Django</h3>
+          <p>Powerful backend tools for building scalable, secure web applications and APIs quickly.</p>
+        </div>
+      </li>
+      <li>
+        <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+        <div class="skill-content">
+          <h3>HTMX & Alpine.js</h3>
+          <p>Progressive enhancement tools for fast, modern dynamic UIs with minimal JavaScript.</p>
+        </div>
+      </li>
+      <li>
+        <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+        <div class="skill-content">
+          <h3>Node.js & Express</h3>
+          <p>High-performance JavaScript server runtime and flexible framework for building APIs.</p>
+        </div>
+      </li>
+      <li>
+        <div class="skill-icon"><i class="fab fa-react"></i></div>
+        <div class="skill-content">
+          <h3>React & Redux</h3>
+          <p>Component-based UI library with global state management for robust front-end apps.</p>
+        </div>
+      </li>
+      <li>
+        <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+        <div class="skill-content">
+          <h3>MERN Stack</h3>
+          <p>Fullstack JavaScript: MongoDB, Express, React, and Node.js for end-to-end web solutions.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="qualifications" class="qualifications-section fade-in">
+    <h2><i class="fas fa-graduation-cap"></i> Qualifications</h2>
+    <p>
+      I’m currently studying Software Development and have completed several hands-on and theory-based certifications in
+      full-stack development and modern web technologies.
+    </p>
+
+    <a href="qualifications/certifications.html" class="cert-btn">
+      <h3>📜 View My Certifications</h3>
+      <p>Browse all my completed courses and credentials</p>
+    </a>
+  </section>
+
+  <section id="contact" class="section slide-in contact-section">
+    <h2><i class="fas fa-envelope-open-text"></i> Get in Touch</h2>
+    <div class="contact-list">
+      <a href="mailto:vumatom10@gmail.com" class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+        <small>vumatom10@gmail.com</small>
+      </a>
+      <a href="https://www.linkedin.com/in/tom-vuma-5ba025370/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B7qJ2Ojz2TZyGeA6WMOe8jQ%3D%3D"
+        class="contact-item" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+        <small>Tom Vuma</small>
+      </a>
+      <a href="https://github.com/tom-coder-blip" class="contact-item" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+        <small>tom-coder-blip</small>
+      </a>
+      <a href="tel:0643356865" class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>Phone</span>
+        <small>064 335 6865</small>
+      </a>
+    </div>
+  </section>
+
+  <footer class="fade-in">
+    <p>&copy; 2025 Tom | Code College Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
