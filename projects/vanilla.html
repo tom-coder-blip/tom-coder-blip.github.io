@@ -4,22 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Interfaces Projects | Tom's Portfolio</title>
+  <title>Web Interface Project | Tom's Portfolio</title>
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Background and typography matching other pages */
     body.project-theme {
-      background: linear-gradient(135deg, #1f2937, #111827); /* navy-gray gradient */
+      background: linear-gradient(135deg, #1f2937, #111827);
       color: #f3f4f6;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 2rem;
       scroll-behavior: smooth;
       min-height: 100vh;
       position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
     }
 
-    /* Back button top-right corner */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
     .back-button {
       position: absolute;
       top: 1.5rem;
@@ -47,7 +53,6 @@
       box-shadow: 0 0 12px rgba(15, 255, 193, 0.9);
     }
 
-    /* Projects heading */
     .project-section h1 {
       font-size: 3rem;
       text-align: center;
@@ -56,166 +61,137 @@
       text-shadow: 0 0 10px rgba(15, 255, 193, 0.6);
     }
 
-    /* Grid layout */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
+      justify-items: center;
       padding-bottom: 3rem;
     }
 
-    .project-card {
-      background: #27272a;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 0 12px rgba(15, 255, 193, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
       position: relative;
-      z-index: 1;
-      pointer-events: auto;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 20px rgba(15, 255, 193, 0.5);
-      border: 1px solid #0fffc1;
-    }
-
-    .project-card img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-bottom: 1px solid #3f3f46;
+      height: 100%;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
     }
 
-    .project-info {
-      padding: 1.2rem;
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-front {
+      background: #27272a;
+      padding: 1rem;
+    }
+
+    .flip-card-front img {
+      width: 80%;
+      height: auto;
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .flip-card-front h2 {
+      color: #0fffc1;
+      font-size: 1.2rem;
+      margin-top: 0.8rem;
       text-align: center;
     }
 
-    .project-info h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: #0fffc1;
+    .flip-card-back {
+      background: #111827;
+      color: #e5e7eb;
+      transform: rotateY(180deg);
+      padding: 1rem;
+      text-align: center;
     }
 
-    .project-info p {
+    .flip-card-back p {
       font-size: 0.95rem;
-      color: #e4e4e7;
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
-    .open-btn {
-      display: inline-block;
+    .flip-card-back .open-btn {
       background: linear-gradient(to right, #0fffc1, #00e0ff);
       color: #111827;
-      padding: 0.5rem 1.3rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
       border-radius: 999px;
-      font-weight: bold;
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      z-index: 10;
-      pointer-events: auto;
     }
 
-    .open-btn:hover {
+    .flip-card-back .open-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(15, 255, 193, 0.5);
-    }
-
-    /* Fade in animation */
-    body {
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    body {
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
     }
   </style>
 </head>
 
 <body class="project-theme">
-
   <div class="back-button">
     <a class="nav-btn" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </div>
 
   <section class="project-section">
-    <h1><i class="fas fa-laptop-code"></i> Web Interfaces Projects</h1>
+    <h1><i class="fas fa-laptop-code"></i> JS/HTML/CSS Project</h1>
     <div class="project-grid">
 
-      <div class="project-card">
-        <img src="../img/budget.png" alt="Budget Tracker" />
-        <div class="project-info">
-          <h2>Budget Tracker</h2>
-          <p>Track your income and expenses in real time with clean UI and charts.</p>
-          <a href="../apps/BudgetTracker/budget.html" class="open-btn" target="_blank">Open App</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="../img/invoice.png" alt="Invoice Maker" />
-        <div class="project-info">
-          <h2>Invoice Maker</h2>
-          <p>Create professional invoices and download them as PDF instantly.</p>
-          <a href="../apps/Invoice/invoice.html" class="open-btn" target="_blank">Open App</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="../img/meme.png" alt="Meme Generator" />
-        <div class="project-info">
-          <h2>Meme Generator</h2>
-          <p>Generate hilarious memes with custom top/bottom text and download them.</p>
-          <a href="../apps/Meme/meme.html" class="open-btn" target="_blank">Open App</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="../img/quotes.png" alt="Quotes API" />
-        <div class="project-info">
-          <h2>Quotes API</h2>
-          <p>A sleek API and frontend to browse or submit inspirational quotes.</p>
-          <a href="../apps/Quotes/quotes.html" class="open-btn" target="_blank">Open App</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="../img/priority.png" alt="Priority Matrix" />
-        <div class="project-info">
-          <h2>Priority Matrix</h2>
-          <p>Organize tasks by urgency and importance using the Eisenhower method.</p>
-          <a href="../apps/PriorityMatrix/priority.html" class="open-btn" target="_blank">Open App</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="../img/water.png" alt="Water Tracker" />
-        <div class="project-info">
-          <h2>Water Tracker</h2>
-          <p>Log and monitor daily water intake with a smooth, clean UI.</p>
-          <a href="../apps/Water/water.html" class="open-btn" target="_blank">Open App</a>
+      <div class="flip-card click-flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/invoice (2).png" alt="Invoice Generator App" />
+            <h2>Invoice Generator</h2>
+          </div>
+          <div class="flip-card-back">
+            <p>
+              This is my Business Invoice Generator that I built with Vanilla JS, allowing you to add items with
+              quantity and price, automatically calculate totals, and print client invoices
+              instantly for your business.
+            </p>
+            <a href="../apps/Invoice/invoice.html" class="open-btn" target="_blank" rel="noopener noreferrer">
+              Launch App
+            </a>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll('.click-flip').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
 </body>
 
 </html>
