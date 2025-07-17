@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>React Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Project</title>
   <link rel="stylesheet" href="../styles.css" />
   <style>
     body {
-      background: linear-gradient(to bottom, #232526, #414345);
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
       color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
       padding: 2rem;
       text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
     }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
     h1 {
       font-size: 3rem;
       color: #61dafb;
+      margin-bottom: 1rem;
     }
-    p {
-      margin-top: 2rem;
+
+    p.description {
+      margin-bottom: 3rem;
       font-size: 1.2rem;
       color: #d1d5db;
     }
+
     .back-home-btn {
       position: absolute;
       top: 1.5rem;
@@ -35,27 +48,134 @@
       text-decoration: none;
       transition: background 0.3s ease, transform 0.2s ease;
     }
+
     .back-home-btn:hover {
       background: #a5f3fc;
       transform: scale(1.05);
     }
 
-    body {
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      justify-items: center;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-front {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .flip-card-front img {
+      width: 80%;
+      height: auto;
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .flip-card-front h2 {
+      color: #61dafb;
+      font-size: 1.2rem;
+      margin-top: 0.8rem;
+      text-align: center;
+    }
+
+    .flip-card-back {
+      background: #0f2027;
+      color: #e5e7eb;
+      transform: rotateY(180deg);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .flip-card-back p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-back .open-btn {
+      background-color: #61dafb;
+      color: #111827;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .flip-card-back .open-btn:hover {
+      background-color: #a5f3fc;
     }
   </style>
 </head>
+
 <body>
   <a class="back-home-btn" href="../index.html#projects">Back to Projects</a>
-  <h1>⚛️ Front-End Apps (React)</h1>
-  <p>Projects coming soon...</p>
-</body>
-</html>
+  <h1>⚛️ Front-End (React)</h1>
+  <p class="description">My front-end React project with interactive functionality.</p>
 
+  <div class="projects-container">
+    <div class="flip-card click-flip">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="../img/beastlog.png" alt="React Project" />
+          <h2>Workout Log App</h2>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            This is my React application that is connected to my Firebase database. It allows users to log, edit,
+            and track their workouts
+            on a clean interface that has authentication, and CRUD functionality.
+          </p>
+          <a href="https://beast-log.onrender.com" class="open-btn" target="_blank" rel="noopener noreferrer">Launch
+            App</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.click-flip').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
+</body>
+
+</html>
