@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Tom's Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f4f8ff, #ddeeff);
+      color: #1f2937;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      margin: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #1f4e79;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    .certifications-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #ffffffcc;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #ffffff;
+      border-left: 6px solid #1f4e79;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      animation: slideIn 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .cert-card img {
+      width: 140px;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-info h2 {
+      font-size: 1.3rem;
+      color: #1e3a5f;
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-info p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .cert-card:nth-child(1) { animation-delay: 0.2s; }
+    .cert-card:nth-child(2) { animation-delay: 0.4s; }
+    .cert-card:nth-child(3) { animation-delay: 0.6s; }
+    .cert-card:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .back-home-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #1f4e79;
+      color: #ffffff;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-home-btn:hover {
+      background: #163b5d;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .cert-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-card img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="back-home-btn" href="../index.html#qualifications"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+  <h1><i class="fas fa-certificate"></i> My Certifications</h1>
+
+  <div class="certifications-container">
+
+    <div class="cert-card">
+      <img src="../img/js-cert.png" alt="Intro to Programming Certificate">
+      <div class="cert-info">
+        <h2>Intro to Programming Certification</h2>
+        <p>Code College · Completed 2025</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="../img/python-cert.png" alt="Python Certificate">
+      <div class="cert-info">
+        <h2>Python Certification</h2>
+        <p>Code College · Completed 2025</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="../img/htmx-cert.png" alt="HTMX Certificate">
+      <div class="cert-info">
+        <h2>HTMX Certification</h2>
+        <p>Code College · Completed 2025</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="../img/node-cert.png" alt="Node.js Certificate">
+      <div class="cert-info">
+        <h2>Node.js Certification</h2>
+        <p>Code College · Completed 2025</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
