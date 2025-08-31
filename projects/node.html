@@ -4,15 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Node.js Projects</title>
+  <title>Node.js Project | Tom's Portfolio</title>
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
-      background: linear-gradient(to bottom right, #1e3c72, #2a5298);
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
+    body.project-theme {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: #f3f4f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 2rem;
-      text-align: center;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
     }
@@ -23,139 +26,53 @@
       }
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #5eead4;
-      margin-bottom: 1rem;
-    }
-
-    p.description {
-      margin-bottom: 3rem;
-      font-size: 1.2rem;
-      color: #d1d5db;
-    }
-
-    .back-home-btn {
+    .back-button {
       position: absolute;
       top: 1.5rem;
       right: 2rem;
       z-index: 1000;
-      padding: 0.6rem 1.2rem;
-      background: #5eead4;
+    }
+
+    .back-button .nav-btn {
+      background-color: #0fffc1;
       color: #111827;
-      border-radius: 999px;
-      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 0 6px rgba(15, 255, 193, 0.6);
     }
 
-    .back-home-btn:hover {
-      background: #99f6e4;
+    .back-button .nav-btn:hover {
+      background-color: #00e0ff;
       transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(15, 255, 193, 0.9);
     }
 
-    .projects-container {
+    .project-section h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0fffc1;
+      text-shadow: 0 0 10px rgba(15, 255, 193, 0.6);
+    }
+
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       justify-items: center;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 1.5rem;
-      max-width: 350px;
-      text-align: left;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeUp 0.8s ease forwards;
-      opacity: 0;
-    }
-
-    .project-card:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-
-    .project-card:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-    }
-
-    .project-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(94, 234, 212, 0.3);
-    }
-
-    .project-card h2 {
-      color: #5eead4;
-      margin-top: 0.5rem;
-    }
-
-    .project-card p {
-      color: #e5e7eb;
-      font-size: 1rem;
-      margin: 0.8rem 0 1.2rem;
-    }
-
-    .project-card a.open-btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background-color: #5eead4;
-      color: #111827;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 999px;
-      transition: background 0.3s ease;
-    }
-
-    .project-card a.open-btn:hover {
-      background-color: #99f6e4;
-    }
-
-    .project-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .open-btn {
-      position: relative;
-      z-index: 10;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-
-    }
-
-    .project-card img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      z-index: 1;
-      position: relative;
+      padding-bottom: 3rem;
     }
 
     .flip-card {
       background-color: transparent;
       width: 300px;
-      height: 300px;
+      height: 400px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -185,10 +102,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
+      text-align: center;
     }
 
     .flip-card-front {
-      background: rgba(255, 255, 255, 0.05);
+      background: #27272a;
     }
 
     .flip-card-front img {
@@ -200,81 +119,102 @@
     }
 
     .flip-card-front h2 {
-      color: #5eead4;
+      color: #0fffc1;
       font-size: 1.2rem;
       margin-top: 0.8rem;
-      text-align: center;
     }
 
     .flip-card-back {
-      background: #1e3a5f;
+      background: #111827;
       color: #e5e7eb;
       transform: rotateY(180deg);
-      padding: 1rem;
-      text-align: center;
     }
 
-    .flip-card-back p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
+    .flip-card-back h3 {
+      margin: 1rem 0 0.4rem;
+      color: #0fffc1;
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px rgba(15, 255, 193, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
-    .flip-card-back .open-btn {
-      background-color: #5eead4;
+    .flip-card-back a.open-btn {
+      background: linear-gradient(to right, #0fffc1, #00e0ff);
       color: #111827;
       font-weight: 600;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.1rem;
       border-radius: 999px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1rem;
+      display: inline-block;
+      font-size: 0.95rem;
     }
 
-    .flip-card-back .open-btn:hover {
-      background-color: #99f6e4;
+    .flip-card-back a.open-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(15, 255, 193, 0.5);
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin: 0 auto;
+      margin-top: -1rem;
+      padding-top: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #d1d5db;
+      line-height: 1.6;
     }
   </style>
 </head>
 
-<script>
-  document.querySelectorAll('.click-flip').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
-    });
-  });
-</script>
+<body class="project-theme">
+  <div class="back-button">
+    <a class="nav-btn" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
 
-<body>
-  <a class="back-home-btn" href="../index.html#projects">Back to Projects</a>
-  <h1>🧩 APIs & Services (Node.js)</h1>
-  <p class="description">My backend app with Node.js, Express.js and MongoDB.</p>
+  <section class="project-section">
+    <h1><i class="fas fa-server"></i> Node.js API Project</h1>
+    <div class="project-grid">
 
-  <div class="projects-container">
-    <div class="flip-card click-flip">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="../img/note-sphere.png" alt="NoteSphere App" />
-          <h2>NoteSphere</h2>
-        </div>
-        <div class="flip-card-back">
-          <p>
-            I built a Node.js application with user authentication and CRUD functionality, where user's have a personal
-            space to write, save, and organize notes and ideas. It uses
-            Express for routing, MongoDB (Database) for storing user's data such as notes, usernames and passwords, and
-            I've
-            integrated APIs and HTTP requests to handle the user's
-            actions with the app securely and efficiently.
-          </p>
-          <a href="https://notesphere-a39b83ff99ea.herokuapp.com/" class="open-btn" target="_blank"
-            rel="noopener noreferrer">Launch App</a>
+      <div class="flip-card click-flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/note-sphere.png" alt="NoteSphere App" />
+            <h2>NoteSphere</h2>
+          </div>
+          <div class="flip-card-back">
+            <h3><i class="fas fa-code-branch"></i> GitHub Code</h3>
+            <a href="https://github.com/yourusername/notesphere" class="open-btn" target="_blank">View on GitHub</a>
+
+            <h3><i class="fas fa-rocket"></i> Live App</h3>
+            <a href="https://notesphere-a39b83ff99ea.herokuapp.com/" class="open-btn" target="_blank">Launch App</a>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
 
+  <section class="project-description">
+    <p>
+      I built NoteSphere with Node.js, Express.js, and MongoDB to provide users with a secure place to write, save,
+      and manage personal notes. It features full CRUD functionality, user authentication, and backend APIs that handle
+      user data efficiently and securely.
+    </p>
+  </section>
 
-  </div>
-
-  <script src="../script.js"></script>
+  <script>
+    document.querySelectorAll('.click-flip').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
 </body>
 
 </html>
