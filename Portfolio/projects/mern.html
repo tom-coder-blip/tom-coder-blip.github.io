@@ -4,15 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MERN Stack Projects</title>
+  <title>MERN Stack Project | Tom's Portfolio</title>
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
-      background: linear-gradient(to bottom, #000428, #004e92);
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
+    body.project-theme {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: #f3f4f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 2rem;
-      text-align: center;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      position: relative;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
     }
@@ -23,48 +26,53 @@
       }
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #38bdf8;
-      margin-bottom: 1rem;
-    }
-
-    p.description {
-      margin-bottom: 3rem;
-      font-size: 1.2rem;
-      color: #d1d5db;
-    }
-
-    .back-home-btn {
+    .back-button {
       position: absolute;
       top: 1.5rem;
       right: 2rem;
       z-index: 1000;
-      padding: 0.6rem 1.2rem;
-      background: #38bdf8;
+    }
+
+    .back-button .nav-btn {
+      background-color: #0fffc1;
       color: #111827;
-      border-radius: 999px;
-      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 0 6px rgba(15, 255, 193, 0.6);
     }
 
-    .back-home-btn:hover {
-      background: #7dd3fc;
+    .back-button .nav-btn:hover {
+      background-color: #00e0ff;
       transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(15, 255, 193, 0.9);
     }
 
-    .projects-container {
+    .project-section h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0fffc1;
+      text-shadow: 0 0 10px rgba(15, 255, 193, 0.6);
+    }
+
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       justify-items: center;
+      padding-bottom: 3rem;
     }
 
     .flip-card {
       background-color: transparent;
       width: 300px;
-      height: 300px;
+      height: 420px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -94,10 +102,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
+      text-align: center;
     }
 
     .flip-card-front {
-      background: rgba(255, 255, 255, 0.05);
+      background: #27272a;
     }
 
     .flip-card-front img {
@@ -106,70 +116,96 @@
       max-height: 150px;
       object-fit: contain;
       border-radius: 12px;
-      margin-bottom: 1rem;
     }
 
     .flip-card-front h2 {
-      color: #38bdf8;
+      color: #0fffc1;
       font-size: 1.2rem;
-      text-align: center;
+      margin-top: 0.8rem;
     }
 
     .flip-card-back {
-      background: #0f172a;
+      background: #111827;
       color: #e5e7eb;
       transform: rotateY(180deg);
-      padding: 1rem;
-      text-align: center;
     }
 
-    .flip-card-back p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
+    .flip-card-back h3 {
+      margin: 1.2rem 0 0.5rem;
+      color: #0fffc1;
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px rgba(15, 255, 193, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
-    .flip-card-back .open-btn {
-      background-color: #38bdf8;
+    .flip-card-back a.open-btn {
+      background: linear-gradient(to right, #0fffc1, #00e0ff);
       color: #111827;
       font-weight: 600;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.1rem;
       border-radius: 999px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1rem;
+      display: inline-block;
+      font-size: 0.95rem;
     }
 
-    .flip-card-back .open-btn:hover {
-      background-color: #7dd3fc;
+    .flip-card-back a.open-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(15, 255, 193, 0.5);
+    }
+
+    .project-description {
+      max-width: 700px;
+      margin: 0 auto;
+      margin-top: -1rem;
+      padding-top: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #d1d5db;
+      line-height: 1.6;
     }
   </style>
 </head>
 
-<body>
-  <a class="back-home-btn" href="../index.html#projects">Back to Projects</a>
-  <h1>🔄 Fullstack (MERN)</h1>
-  <p class="description">My MERN stack app using MongoDB, Express, React, and Node.js.</p>
+<body class="project-theme">
+  <div class="back-button">
+    <a class="nav-btn" href="../index.html#projects"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
 
-  <div class="projects-container">
-    <div class="flip-card click-flip">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="../img/secretkeeper.png" alt="MERN Project" />
-          <h2>SecretKeeper App</h2>
-        </div>
-        <div class="flip-card-back">
-          <p>
-            SecretKeeper is a project I built using MERN stack. Users can post
-            anonymous secrets, like others' posts, and manage their own content. I used GraphQL to handle all data
-            requests through a single endpoint and JSON Web Tokens for user authentication. My backend is built with Node and Express, and everything connects to MongoDB for data
-            storage.
-          </p>
-          <a href="https://secretkeeper-85qn.onrender.com" class="open-btn" target="_blank"
-            rel="noopener noreferrer">Launch
-            App</a>
+  <section class="project-section">
+    <h1><i class="fas fa-server"></i> MERN Stack Project</h1>
+    <div class="project-grid">
+
+      <div class="flip-card click-flip">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/secretkeeper.png" alt="SecretKeeper App" />
+            <h2>SecretKeeper App</h2>
+          </div>
+          <div class="flip-card-back">
+            <h3><i class="fas fa-code-branch"></i> GitHub Code</h3>
+            <a href="https://github.com/tom-coder-blip/SecretKeeper" class="open-btn" target="_blank">View on GitHub</a>
+
+            <h3><i class="fas fa-rocket"></i> Live App</h3>
+            <a href="https://secretkeeper-85qn.onrender.com" class="open-btn" target="_blank">Launch App</a>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
+
+  <section class="project-description">
+    <p>
+      SecretKeeper is a fullstack MERN application that allows users to anonymously post and like secrets. It features
+      authentication via JWT, data handling via GraphQL, and persistent storage using MongoDB.
+    </p>
+  </section>
 
   <script>
     document.querySelectorAll('.click-flip').forEach(card => {

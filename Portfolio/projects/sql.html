@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Node.js Project | Tom's Portfolio</title>
+  <title>SQL Project | Tom's Portfolio</title>
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body.project-theme {
-      background: linear-gradient(135deg, #1f2937, #111827);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: #f3f4f6;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 2rem;
@@ -34,8 +34,8 @@
     }
 
     .back-button .nav-btn {
-      background-color: #0fffc1;
-      color: #111827;
+      background-color: #38bdf8;
+      color: #0f172a;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-weight: bold;
@@ -44,21 +44,21 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      box-shadow: 0 0 6px rgba(15, 255, 193, 0.6);
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
     }
 
     .back-button .nav-btn:hover {
-      background-color: #00e0ff;
+      background-color: #0ea5e9;
       transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(15, 255, 193, 0.9);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
     }
 
     .project-section h1 {
       font-size: 3rem;
       text-align: center;
       margin-bottom: 2rem;
-      color: #0fffc1;
-      text-shadow: 0 0 10px rgba(15, 255, 193, 0.6);
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
     }
 
     .project-grid {
@@ -72,7 +72,7 @@
     .flip-card {
       background-color: transparent;
       width: 300px;
-      height: 400px;
+      height: 380px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -107,7 +107,7 @@
     }
 
     .flip-card-front {
-      background: #27272a;
+      background: #1e293b;
     }
 
     .flip-card-front img {
@@ -119,22 +119,22 @@
     }
 
     .flip-card-front h2 {
-      color: #0fffc1;
+      color: #38bdf8;
       font-size: 1.2rem;
       margin-top: 0.8rem;
     }
 
     .flip-card-back {
-      background: #111827;
+      background: #0f172a;
       color: #e5e7eb;
       transform: rotateY(180deg);
     }
 
     .flip-card-back h3 {
-      margin: 1rem 0 0.4rem;
-      color: #0fffc1;
+      margin: 1.2rem 0 0.5rem;
+      color: #38bdf8;
       font-size: 1.1rem;
-      text-shadow: 0 0 5px rgba(15, 255, 193, 0.3);
+      text-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -142,8 +142,8 @@
     }
 
     .flip-card-back a.open-btn {
-      background: linear-gradient(to right, #0fffc1, #00e0ff);
-      color: #111827;
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      color: #0f172a;
       font-weight: 600;
       padding: 0.5rem 1.1rem;
       border-radius: 999px;
@@ -156,7 +156,7 @@
 
     .flip-card-back a.open-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(15, 255, 193, 0.5);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
     }
 
     .project-description {
@@ -178,21 +178,18 @@
   </div>
 
   <section class="project-section">
-    <h1><i class="fas fa-server"></i> Node.js API Project</h1>
+    <h1><i class="fas fa-database"></i> SQL Project</h1>
     <div class="project-grid">
 
       <div class="flip-card click-flip">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="../img/note-sphere.png" alt="NoteSphere App" />
-            <h2>NoteSphere</h2>
+            <img src="../img/shopcartsql.png" alt="Shopping Cart Database" />
+            <h2>Shopping Cart Database</h2>
           </div>
           <div class="flip-card-back">
             <h3><i class="fas fa-code-branch"></i> GitHub Code</h3>
-            <a href="https://github.com/yourusername/notesphere" class="open-btn" target="_blank">View on GitHub</a>
-
-            <h3><i class="fas fa-rocket"></i> Live App</h3>
-            <a href="https://notesphere-a39b83ff99ea.herokuapp.com/" class="open-btn" target="_blank">Launch App</a>
+            <a href="https://github.com/tom-coder-blip/ShopCart-SQL-" class="open-btn" target="_blank">View on GitHub</a>
           </div>
         </div>
       </div>
@@ -202,9 +199,10 @@
 
   <section class="project-description">
     <p>
-      I built NoteSphere with Node.js, Express.js, and MongoDB to provide users with a secure place to write, save,
-      and manage personal notes. It features full CRUD functionality, user authentication, and backend APIs that handle
-      user data efficiently and securely.
+      My SQL project is a Shopping Cart Database that manages products, customers, and orders. It demonstrates
+      relational database design using primary & foreign keys and joins
+      I created tables for <strong>Users</strong>, <strong>Products</strong>, <strong>Orders</strong>, and
+      <strong>Checkout system</strong> to simulate a real-world e-commerce system.
     </p>
   </section>
 
