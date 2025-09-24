@@ -31,3 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ===== Door Opening Animation for BulaNext =====
+document.addEventListener("DOMContentLoaded", function () {
+  const door = document.getElementById("door");
+  const doorCard = document.getElementById("doorCard");
+
+  if (door && doorCard) {
+    doorCard.addEventListener("click", () => {
+      door.classList.toggle("open");
+    });
+  }
+});
