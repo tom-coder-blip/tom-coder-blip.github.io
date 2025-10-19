@@ -149,26 +149,83 @@ body.theme-grey-navy {
 /* Card Grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Adds spacing between cards */
+  padding: 1rem;
 }
 
-/* Stylish Cards */
 .project-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;       /* Reduced padding */
+  min-width: 300px;           /* Smaller footprint */
+  min-height: 220px;          /* Lower height */
   color: #f1f5f9;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
+  font-size: 1rem;            /* Smaller text */
+  font-weight: 500;
   text-align: center;
-  backdrop-filter: blur(10px);
-  transition: all 0.35s ease;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.05);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.05);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.btn-card {
+  background-color: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: rgba(56, 189, 248, 0.25);
+}
+
+.btn-card {
+  position: relative;
+  z-index: 2; /* Ensures it's above any background layers */
+}
+
+.project-card::before {
+  z-index: 0;
 }
 
 /* Cool hover effect */
@@ -533,13 +590,24 @@ html {
 
 .projects-section {
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 8rem 2rem; /* Increased vertical padding */
   margin: 6rem auto;
-  max-width: 1200px;
+  max-width: 1400px;   /* Slightly wider container */
   background: linear-gradient(to bottom, #e5e7eb, #1e293b, #0f172a);
   border-radius: 1rem;
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.08);
   animation: fadeSlideIn 1.2s ease-in-out both;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-height: 160px;
+    padding: 2rem 1.5rem;
+  }
+
+  .projects-section {
+    padding: 4rem 1rem;
+  }
 }
 
 /* Fade and Slide effect */
@@ -936,133 +1004,10 @@ footer:hover {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== Door Card Container ===== */
-.door-card {
-  position: relative;
-  width: 100%;
-  max-width: 700px;
-  margin: auto;
-  perspective: 1500px;
-}
-
-/* ===== Door ===== */
-.door {
-  width: 100%;
-  height: 400px;
-  background: linear-gradient(145deg, #0f172a, #1e293b);
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 35px rgba(56, 189, 248, 0.2);
-  position: relative;
-  transform-origin: left;
-  transition: transform 1.3s ease-in-out;
-  cursor: pointer;
-  z-index: 10;
-}
-
-/* ===== Door Text ===== */
-.door-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #f8fafc;
-  padding: 1rem;
-}
-
-.door-text h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #38bdf8;
-}
-
-.door-text p {
-  font-size: 1.1rem;
-  color: #cbd5e1;
-  margin-bottom: 0.5rem;
-}
-
-.cta-text {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #94a3b8;
-  font-style: italic;
-}
-
-/* ===== Logo Section ===== */
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 5px 25px rgba(56, 189, 248, 0.15);
-  margin-top: -400px; /* Initially hidden behind the door */
-  opacity: 0;
-  transition: opacity 0.7s ease-in-out;
-}
-
-.bulanext-logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-}
-
-.project-title {
-  font-size: 1.6rem;
-  color: #38bdf8;
-  margin-bottom: 0.5rem;
-}
-
-.project-desc {
-  font-size: 1rem;
-  color: #e2e8f0;
-  max-width: 500px;
-  margin-bottom: 1.5rem;
-}
-
-/* ===== Explore Button ===== */
-.explore-btn {
-  padding: 0.75rem 1.8rem;
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: #f8fafc;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  border: none;
-  border-radius: 999px;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.explore-btn:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
-}
-
-/* ===== Door Open Effect ===== */
-.door.open {
-  transform: rotateY(-100deg);
-}
-
-.door.open + .logo-container {
-  opacity: 1;
-}
-
 /* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
-  .door {
-    height: 300px;
-  }
 
   .bulanext-logo {
-    width: 120px;
+    width: 90px;
   }
 
   .project-desc {
@@ -1073,7 +1018,7 @@ footer:hover {
     font-size: 0.95rem;
     padding: 0.6rem 1.4rem;
   }
-}
+
 
 /* === Horizontal Button Group === */
 .button-group {
