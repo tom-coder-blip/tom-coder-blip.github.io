@@ -20,26 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
   sliders.forEach(slider => appearOnScroll.observe(slider));
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.click-flip').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
-    });
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.querySelectorAll('.click-flip').forEach(card => {
+//     card.addEventListener('click', () => {
+//       card.classList.toggle('flipped');
+//     });
 
-    card.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', e => e.stopPropagation());
-    });
-  });
-});
+//     card.querySelectorAll('a').forEach(link => {
+//       link.addEventListener('click', e => e.stopPropagation());
+//     });
+//   });
+// });
 
-// ===== Door Opening Animation for BulaNext =====
-document.addEventListener("DOMContentLoaded", function () {
-  const door = document.getElementById("door");
-  const doorCard = document.getElementById("doorCard");
-
-  if (door && doorCard) {
-    doorCard.addEventListener("click", () => {
-      door.classList.toggle("open");
-    });
-  }
-});
