@@ -178,8 +178,8 @@ body.theme-grey-navy {
 }
 
 .project-logo {
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
@@ -1007,7 +1007,7 @@ footer:hover {
 /* ===== Responsive Styling ===== */
 
   .bulanext-logo {
-    width: 90px;
+    width: 150px;
   }
 
   .project-desc {
