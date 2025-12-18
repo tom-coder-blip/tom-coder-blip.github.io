@@ -79,10 +79,15 @@ body.theme-grey-navy {
   transition: box-shadow 0.3s ease;
 }
 
+/* Button container for side-by-side layout */
 .navbar ul {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
+  flex-direction: row;
+  gap: 0.8rem; /* Adds breathing space between buttons */
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .navbar a {
@@ -144,26 +149,83 @@ body.theme-grey-navy {
 /* Card Grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Adds spacing between cards */
+  padding: 1rem;
 }
 
-/* Stylish Cards */
 .project-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;       /* Reduced padding */
+  min-width: 300px;           /* Smaller footprint */
+  min-height: 220px;          /* Lower height */
   color: #f1f5f9;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
+  font-size: 1rem;            /* Smaller text */
+  font-weight: 500;
   text-align: center;
-  backdrop-filter: blur(10px);
-  transition: all 0.35s ease;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.05);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.05);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.btn-card {
+  background-color: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: rgba(56, 189, 248, 0.25);
+}
+
+.btn-card {
+  position: relative;
+  z-index: 2; /* Ensures it's above any background layers */
+}
+
+.project-card::before {
+  z-index: 0;
 }
 
 /* Cool hover effect */
@@ -300,41 +362,30 @@ footer {
   padding: 0;
 }
 
+/* ===== Improved Small, Clean Buttons ===== */
 .nav-btn {
-  background: linear-gradient(145deg, #1e293b, #334155);
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  color: #f8fafc;
+  background: linear-gradient(145deg, #1e293b, #2c3e50); /* Darker, less bright */
+  padding: 0.4rem 0.8rem; /* Smaller size */
+  border-radius: 8px;
+  color: #f1f5f9;
   font-weight: 500;
+  font-size: 0.85rem; /* Smaller font */
   text-decoration: none;
-  transition: all 0.35s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.05));
-  transition: all 0.6s ease;
-  transform: skewX(-20deg);
-  z-index: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  display: inline-block;
 }
 
 .nav-btn:hover::before {
   left: 100%;
 }
 
+/* Hover effect */
 .nav-btn:hover {
   color: #38bdf8;
   background: linear-gradient(145deg, #0f172a, #1e293b);
-  box-shadow: 0 0 12px #38bdf8, 0 0 20px #1e40af;
-  transform: translateY(-3px);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
 }
 
 .nav-btn:focus {
@@ -539,13 +590,24 @@ html {
 
 .projects-section {
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 8rem 2rem; /* Increased vertical padding */
   margin: 6rem auto;
-  max-width: 1200px;
+  max-width: 1400px;   /* Slightly wider container */
   background: linear-gradient(to bottom, #e5e7eb, #1e293b, #0f172a);
   border-radius: 1rem;
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.08);
   animation: fadeSlideIn 1.2s ease-in-out both;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-height: 160px;
+    padding: 2rem 1.5rem;
+  }
+
+  .projects-section {
+    padding: 4rem 1rem;
+  }
 }
 
 /* Fade and Slide effect */
@@ -912,8 +974,108 @@ footer:hover {
 
 .welcome-photo {
   width: 100%;
-  max-width: 500px; /* Increased size */
+  max-width: 370px; /* Increased size */
   height: auto;
   display: block;
   border-radius: 1.25rem;
 }
+
+/* ===== Featured Project Section ===== */
+.featured-project-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  margin: 5rem auto 3rem;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-project-section h2 {
+  font-size: 2.8rem;
+  color: #f8fafc;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Responsive Styling ===== */
+
+  .bulanext-logo {
+    width: 150px;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+  }
+
+  .explore-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+  }
+
+
+/* === Horizontal Button Group === */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Add proper spacing between buttons */
+  margin-top: 1.5rem;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+}
+
+/* === Smaller, Sleek Neon Buttons === */
+.btn-primary {
+  display: inline-block;
+  padding: 0.5rem 1.3rem; /* Smaller buttons */
+  background: #00e6f6; /* Softer neon color */
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 0 8px rgba(0, 230, 246, 0.35);
+  transition: all 0.25s ease-in-out;
+  text-align: center;
+  min-width: 120px; /* Ensures buttons are uniform */
+}
+
+/* === Hover Effect === */
+.btn-primary:hover {
+  background: #00d4e6;
+  box-shadow: 0 0 15px rgba(0, 230, 246, 0.55);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* === Responsive Fix for Small Screens === */
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+    gap: 0.7rem; /* Adjust vertical spacing for mobile */
+  }
+}
+
+
+/* Smaller, cleaner buttons */
+#featured-project .btn-primary {
+  background-color: #1e293b; /* Dark navy for less brightness */
+  color: #f8fafc; /* Light text */
+  padding: 8px 16px; /* Smaller, balanced size */
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 150px; /* Ensures consistent width */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
