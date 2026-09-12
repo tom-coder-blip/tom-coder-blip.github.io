@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Tracker</title>
+  <link rel="stylesheet" href="water.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <h1 class="slide-in">💧 Water Tracker</h1>
+    <p id="currentDay" class="fade-in"></p>
+
+    <div class="input-section slide-in">
+      <input type="number" id="waterInput" placeholder="Enter amount in ml" />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <div class="log-section fade-in">
+      <h2>Daily Intake</h2>
+      <ul id="logList"></ul>
+    </div>
+
+    <div class="progress-container slide-in">
+      <label>Progress:</label>
+      <progress id="waterProgress" value="0" max="3000"></progress>
+      <p id="progressText">0 / 3000 ml</p>
+    </div>
+
+    <button id="resetBtn" class="fade-in">Reset Day</button>
+  </div>
+
+  <!-- Water Animation -->
+  <div class="water-animation">
+    <div class="wave"></div>
+    <div class="wave wave2"></div>
+  </div>
+
+  <script src="water.js"></script>
+</body>
+</html>

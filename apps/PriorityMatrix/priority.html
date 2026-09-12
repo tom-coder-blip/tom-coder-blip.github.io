@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Priority Matrix</title>
+  <link rel="stylesheet" href="priority.css"/>
+</head>
+<body>
+  <h1 class="fade-in">Priority Matrix</h1>
+
+  <div class="matrix-container slide-up">
+    <div class="quadrant important-urgent">
+      <h2>Important & Urgent</h2>
+    </div>
+    <div class="quadrant important-not-urgent">
+      <h2>Important & Not Urgent</h2>
+    </div>
+    <div class="quadrant not-important-urgent">
+      <h2>Not Important & Urgent</h2>
+    </div>
+    <div class="quadrant not-important-not-urgent">
+      <h2>Not Important & Not Urgent</h2>
+    </div>
+  </div>
+
+  <div class="task-input">
+    <input type="text" id="taskText" placeholder="Add a task..." />
+    <input type="date" id="taskDeadline" />
+    <select id="quadrantSelect">
+      <option value="important-urgent">Important & Urgent</option>
+      <option value="important-not-urgent">Important & Not Urgent</option>
+      <option value="not-important-urgent">Not Important & Urgent</option>
+      <option value="not-important-not-urgent">Not Important & Not Urgent</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <script src="priority.js"></script>
+</body>
+</html>

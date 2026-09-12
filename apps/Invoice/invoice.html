@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice Generator</title>
+  <link rel="stylesheet" href="invoice.css" />
+</head>
+<body>
+  <div class="container fade-in slide-in">
+    <h1>Invoice Generator</h1>
+
+    <!-- Business Info -->
+    <section class="section">
+      <h2>Business Info</h2>
+      <input type="text" placeholder="Business Name" id="business-name" />
+      <input type="text" placeholder="Business Address" id="business-address" />
+    </section>
+
+    <!-- Client Info -->
+    <section class="section">
+      <h2>Client Info</h2>
+      <input type="text" placeholder="Client Name" id="client-name" />
+      <input type="text" placeholder="Client Address" id="client-address" />
+    </section>
+
+    <!-- Invoice Items -->
+    <section class="section">
+      <h2>Items</h2>
+      <table id="invoice-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="items-body">
+          <!-- Rows will be added by JS -->
+        </tbody>
+      </table>
+      <button id="add-item">+ Add Item</button>
+    </section>
+
+    <!-- Total -->
+    <section class="section total">
+      <h2>Grand Total: R<span id="grand-total">0.00</span></h2>
+    </section>
+
+    <!-- Actions -->
+    <section class="section actions">
+      <button id="generate-btn">Generate Invoice</button>
+    </section>
+  </div>
+
+  <script src="invoice.js"></script>
+</body>
+</html>

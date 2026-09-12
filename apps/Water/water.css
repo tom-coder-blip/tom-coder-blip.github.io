@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #e0f7fa;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  width: 60%;
+  margin-right: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in;
+}
+
+.slide-in {
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideIn 1s forwards ease-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.progress-container {
+  margin-top: 20px;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+}
+
+.water-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.wave {
+  background: #b2ebf2;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: waveMove 6s linear infinite;
+  border-radius: 40% 60% 55% 45% / 50% 50% 60% 40%;
+  opacity: 0.5;
+}
+
+.wave2 {
+  background: #4dd0e1;
+  animation: waveMove 8s linear infinite reverse;
+  opacity: 0.7;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.removeBtn {
+  background-color: transparent;
+  color: #ff1744;
+  border: none;
+  font-size: 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  color: #d50000;
+}
